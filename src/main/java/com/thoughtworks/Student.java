@@ -1,5 +1,7 @@
 package com.thoughtworks;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Student {
@@ -8,10 +10,11 @@ public class Student {
     private String number;
     private Date admissionDate;
 
-    public Student(String name, String number, Date admissionDate) {
+    public Student(String name, String number, String admissionDateStr) throws ParseException {
         this.name = name;
         this.number = number;
-        this.admissionDate = admissionDate;
+        SimpleDateFormat simpleDateFormat= new SimpleDateFormat("yyyy.mm.dd");
+        this.admissionDate = simpleDateFormat.parse(admissionDateStr);
     }
 
     public String getName() {
